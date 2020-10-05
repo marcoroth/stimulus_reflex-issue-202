@@ -1,3 +1,52 @@
+<table>
+  <tr>
+    <td>action_name:</td>
+    <td><%= action_name.encoding %></td>
+  <tr/>
+  <tr>
+    <td>controller.action_name:</td>
+    <td><%= controller.action_name.encoding %></td>
+  </tr>
+  <tr>
+    <td>controller_name:</td>
+    <td><%= controller_name.encoding %></td>
+  <tr/>
+  <tr>
+    <td>__ENCODING__:</td>
+    <td><%= __ENCODING__ %></td>
+  <tr/>
+  <tr>
+    <td>Encoding::BINARY:</td>
+    <td><%= Encoding::BINARY %></td>
+  <tr/>
+  <tr>
+    <td>Symbol is US-ASCII:</td>
+    <td><%= :abc.to_s.encoding %></td>
+  </tr>
+  <tr>
+    <td>String is UTF-8:</td>
+    <td><%= "abc".encoding %></td>
+  </tr>
+  <tr>
+    <td>Enable the line below to blow it up after a reflex:</td>
+    <td><%#= action_name.parameterize %></td>
+  </tr>
+  <tr>
+    <td>Time.now:</td>
+    <td><%= Time.now %></td>
+  </tr>
+</table>
+
+<br/><br/>
+
+Params:
+<ul>
+  <% request.params.each do |param| %>
+    <li><%= "#{param[0]} (#{param[0].encoding}) => #{param[1]} (#{param[1].encoding})" %> </li>
+  <% end %>
+</ul>
+
+
 <section class="todoapp" data-controller="todos">
   <header class="header">
     <h1><small><%= truncate "#{session[:filter]} todos", length: 12 %></small></h1>
